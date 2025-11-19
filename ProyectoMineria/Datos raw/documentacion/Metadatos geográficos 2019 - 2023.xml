@@ -1,0 +1,386 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+<Metadata>
+<MD_DataIdentification>
+<title>Georreferenciación de accidentes de tránsito terrestre 2019 - 2023</title>
+<purpose>Proporcionar a los usuarios la ubicación espacial de los accidentes de tránsito terrestre en las principales ciudades del país, para identificar las regiones geográficas que concentran el mayor número de hechos de tránsito, sus características, así como el número de víctimas muertas y heridas. De esta manera, se pretende contribuir al análisis a nivel municipal en materia de accidentabilidad, así como en la elaboración y/o formulación de políticas públicas orientadas a la prevención de accidentes.</purpose>
+<abstract>El conjunto de coordenadas geográficas de accidentes de tránsito terrestre, muestra la ubicación espacial de los eventos viales, proporcionando información sobre las características de dichos hechos de tránsito, como lugar de ocurrencia, Tipo de accidente, Clase de accidente, Víctimas Muertas y Heridas, además de Hora y Día en que ocurre el accidente. Esta información corresponde al periodo 2019 - 2023, y su difusión es anual.
+
+Actualmente, se dispone de información sobre accidentes georreferenciados para 75 municipios de la república mexicana en el año 2019, 77 municipios en 2020; 153 para el 2021, 164 para 2022 y 182 municipios para 2023. Es importante destacar que las 16 demarcaciones territoriales de la Ciudad de México presentan información para todos los años referidos previamente.
+
+El conjunto de coordenadas geográficas de accidentes de tránsito, tiene como insumo a la Estadística de Accidentes de Tránsito en Zonas Urbanas y Suburbanas (ATUS) misma que al ser georreferida en el Marco Geoestadístico (2019) y presentarse en un formato vectorial, es mostrada a través de la herramienta Espacio y Datos de México. Las consultas sobre accidentes georreferenciados, permiten la vinculación con otra información disponible en Espacio y Datos de México, como unidades económicas, centros educativos y de trabajo, datos sobre población y características del entorno urbano, proporcionando a los especialistas, investigadores y público en general mayores elementos para un análisis integral de la zona donde suceden los incidentes viales. 
+
+Asimismo, el conjunto de coordenadas geográficas es mostrado a través del Mapa Digital de México, visualizándose por medio de mapas de calor y conglomerados Clúster. Los mapas de calor permiten la identificación visual de regiones geográficas con mayor concentración de eventos viales, mientras que el análisis Clúster es un método estadístico de clasificación de datos que permite agrupar los eventos viales por su cercanía y mostrar sus principales características, tales como el tipo y clase de accidente, víctimas muertas y heridas.</abstract>
+<MD_DataIdentification_language>ES - Español.</MD_DataIdentification_language>
+<topicCategory>
+<principalTopic>11. Localización: Información posicional y servicios.  </principalTopic>
+<principalTopic>15. Transportación: Medios y ayudas para transportar personas o mercancías. </principalTopic>
+<groupCategory>4. Grupo de datos topográficos: Subdivisión de la Infraestructura de Datos Espaciales de México que contiene elementos que caracterizan parte o toda la superficie  terrestre, constituidos por datos referidos a los componentes físicos del paisaje y de los correspondientes a objetos de infraestructura humana. Particularizan un terreno en su configuración superficial, permitiendo la identificación de la disposición y forma de sus partes y lo distinguen de otros semejantes.</groupCategory>
+</topicCategory>
+<keyword>Accidentes de tránsito terrestre.</keyword>
+<type>5. Tema: La palabra clave que identifica un tema o materia particular.</type>
+<keyword>Clase de accidente.</keyword>
+<type>5. Tema: La palabra clave que identifica un tema o materia particular.</type>
+<keyword>Día en que ocurrió el accidente.</keyword>
+<type>4. Temporal: La palabra clave identifica un periodo de tiempo relacionado al conjunto de datos espaciales o producto.</type>
+<keyword>Hora en que ocurrió el accidente.</keyword>
+<type>4. Temporal: La palabra clave identifica un periodo de tiempo relacionado al conjunto de datos espaciales o producto.</type>
+<keyword>Tipo de accidente.</keyword>
+<type>5. Tema: La palabra clave que identifica un tema o materia particular.</type>
+<keyword>Víctimas heridas.</keyword>
+<type>5. Tema: La palabra clave que identifica un tema o materia particular.</type>
+<keyword>Víctimas muertas.</keyword>
+<type>5. Tema: La palabra clave que identifica un tema o materia particular.</type>
+<keyword>Zona donde ocurrió el accidente</keyword>
+<type>2. Lugar: La palabra clave identifica un lugar o ubicación cubierto por el conjunto de datos espaciales o producto.</type>
+<thesaurusName>Glosario de la Estadística de Accidentes de Tránsito Terrestre en Zonas Urbanas y Suburbanas.</thesaurusName>
+<edition>Segunda.</edition>
+<presentationForm>  5. Mapa digital: Mapa representado en formato raster o vector.</presentationForm>
+<presentationForm>  7. Modelo digital: Representación digital multi-dimensional de un objeto, proceso, etc. </presentationForm>
+<CI_OnlineResource>
+<CI_OnlineResource_linkage>https://www.inegi.org.mx/</CI_OnlineResource_linkage>
+<CI_OnlineResource_description>Sitio del Instituto Nacional de Estadística y Geografía (INEGI).</CI_OnlineResource_description>
+</CI_OnlineResource>
+<maintenanceAndUpdateFrequency>  7. Anualmente: Los datos se actualizan cada año.</maintenanceAndUpdateFrequency>
+<MD_DataIdentification_characterSet>  6. 8859parte1: ISO/IEC 8859-1, Tecnologías de la Información - Conjuntos de caracteres gráficos codificados de 8-bit por byte - Parte 1: Alfabeto Latino No.1.</MD_DataIdentification_characterSet>
+<graphfilename> </graphfilename>
+<specuse>Uso interno. Los Consejos Estatales de Prevención de Accidentes utilizan el conjunto de coordenadas geográficas, visualizadas a través de Espacio y Datos de México y Mapa Digital de México para identificar las regiones geográficas en las cuales se presenta una mayor concentración de accidentes de tránsito, permitiendo la vinculación con otra información difundida en esta herramienta, como centros educativos y de trabajo, unidades económicas, datos sobre población y características del entorno urbano; a fin de establecer políticas, lineamientos y acciones que permitan incrementar la cultura de prevención de accidentes.
+
+Uso externo. Especialistas en materia de accidentes de tránsito podrían utilizar esta información, para la identificación de actores vulnerables involucrados en accidentes de tránsito, como peatones, motociclistas, etc. En la localización de vialidades con alto riesgo de accidentabilidad permitiendo inferir deficiencias de infraestructura vial, la identificación de horarios cumbre donde se presente el mayor número de accidentes, en la localización de días con mayor incidencia de eventos viales para la identificación de conductas sociales de riesgo como el uso de bebidas alcohólicas, así como en la identificación geográfica de la gravedad de los accidentes, mostrando las regiones que concentran el mayor número de víctimas muertas y/o heridas, así como eventos que presenten solo repercusiones 
+
+</specuse>
+</MD_DataIdentification>
+<CI_Date>
+<Dates_Events>
+<date>2023-10-27</date>
+<dateType>1. Creación: Indicador  de la fecha que especifica cuando fue creado el recurso.</dateType>
+</Dates_Events>
+<Ad_Date>
+<date_creation>2019-11-04</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Marco Geoestadístico Nacional 2019.</inpname>
+<date_creation>2020-07-15</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Estadística de Accidentes de Tránsito Terrestre 2019.</inpname>
+<date_creation>2020-08-03</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Mapa Digital de México.</inpname>
+<date_creation>2021-07-15</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Estadística de Accidentes de Tránsito Terrestre 2020.</inpname>
+<date_creation>2022-06-01</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Sistema de Alta y Georreferenciación de Accidentes (SAGA).</inpname>
+<date_creation>2022-07-15</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Estadística de Accidentes de Tránsito Terrestre 2021.</inpname>
+<date_creation>2023-07-14</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Estadística de Accidentes de Tránsito Terrestre 2022</inpname>
+<date_creation>2024-07-07</date_creation>
+<date_begin></date_begin>
+<date_end></date_end>
+<inpname>Estadística de Accidentes de Tránsito Terrestre 2023</inpname>
+</Ad_Date>
+</CI_Date>
+<CI_ResponsibleParty>
+<CI_ResponsibleParty_individualName>Mtro. J. Armando Aguiar Rodríguez</CI_ResponsibleParty_individualName>
+<CI_ResponsibleParty_organisationName>Instituto Nacional de Estadística y Geografía - INEGI.</CI_ResponsibleParty_organisationName>
+<CI_ResponsibleParty_positionName>Director de Servicios de Información.</CI_ResponsibleParty_positionName>
+<CI_ResponsibleParty_voice>(449)9105300 Ext. 5486 y 5920. Lada 800 111 46 34 (sin costo)</CI_ResponsibleParty_voice>
+<CI_ResponsibleParty_facsimile></CI_ResponsibleParty_facsimile>
+<CI_ResponsibleParty_deliveryPoint>Avenida Héroe de Nacozari Sur 2301. Fraccionamiento Jardines del Parque. C.P. 20276. Aguascalientes, Aguascalientes. Entre Calle INEGI, Avenida del Lago y Avenida Paseo de las Garzas.</CI_ResponsibleParty_deliveryPoint>
+<CI_ResponsibleParty_city>Aguascalientes.</CI_ResponsibleParty_city>
+<CI_ResponsibleParty_administrativeArea>Aguascalientes.</CI_ResponsibleParty_administrativeArea>
+<CI_ResponsibleParty_postalCode>20276</CI_ResponsibleParty_postalCode>
+<CI_ResponsibleParty_country>México.</CI_ResponsibleParty_country>
+<CI_ResponsibleParty_electronicMailAddress>atencion.usuarios@inegi.org.mx</CI_ResponsibleParty_electronicMailAddress>
+<CI_ResponsibleParty_linkage>http://www.inegi.org.mx/</CI_ResponsibleParty_linkage>
+<CI_ResponsibleParty_role>  5. Distribuidor: Parte que distribuye el recurso.</CI_ResponsibleParty_role>
+</CI_ResponsibleParty>
+<CI_ResponsibleParty>
+<CI_ResponsibleParty_individualName>Antonio Román Cruz Martínez.</CI_ResponsibleParty_individualName>
+<CI_ResponsibleParty_organisationName>Instituto Nacional de Estadística y Geografía - INEGI.</CI_ResponsibleParty_organisationName>
+<CI_ResponsibleParty_positionName>Subdirector de Aprovechamiento de Registros Económicos.</CI_ResponsibleParty_positionName>
+<CI_ResponsibleParty_voice>55 52 78 10 00 ext. 32-1154</CI_ResponsibleParty_voice>
+<CI_ResponsibleParty_facsimile></CI_ResponsibleParty_facsimile>
+<CI_ResponsibleParty_deliveryPoint>Avenida Patriotismo 711. Colonia San Juan Mixcoac. C.P. 03730. Benito Juárez, Ciudad de México. Entre Calle Rubens y Calle Holbein</CI_ResponsibleParty_deliveryPoint>
+<CI_ResponsibleParty_city>Ciudad de México.</CI_ResponsibleParty_city>
+<CI_ResponsibleParty_administrativeArea>Ciudad de México.</CI_ResponsibleParty_administrativeArea>
+<CI_ResponsibleParty_postalCode>03730</CI_ResponsibleParty_postalCode>
+<CI_ResponsibleParty_country>México.</CI_ResponsibleParty_country>
+<CI_ResponsibleParty_electronicMailAddress>roman.martinez@inegi.org.mx</CI_ResponsibleParty_electronicMailAddress>
+<CI_ResponsibleParty_linkage>https://www.inegi.org.mx/</CI_ResponsibleParty_linkage>
+<CI_ResponsibleParty_role>  6. Creador: Parte que creó el recurso.</CI_ResponsibleParty_role>
+</CI_ResponsibleParty>
+<geographicElement>
+<EX_GeographicBoundingBox>
+<westBoundLongitude>-122.170416</westBoundLongitude>
+<eastBoundLongitude>-84.64185</eastBoundLongitude>
+<southBoundLatitude>11.96863</southBoundLatitude>
+<northBoundLatitude>32.718516</northBoundLatitude>
+</EX_GeographicBoundingBox>
+<spatialRepresentationType>1. Vector: Los datos vectoriales se utilizan para representar datos espaciales.</spatialRepresentationType>
+</geographicElement>
+<MD_ReferenceSystem>
+<ReferenceHorizontalSystem>
+<geograph>
+<latres></latres>
+<longres></longres>
+<geogunit></geogunit>
+</geograph>
+<planar>
+<mapprojn>
+<lambertc>
+<lambertc_stdparll>17.5</lambertc_stdparll>
+<lambertc_stdparll>29.5</lambertc_stdparll>
+<lambertc_longcm>-102.0</lambertc_longcm>
+<lambertc_latprjo>12.0</lambertc_latprjo>
+<lambertc_feast>2500000.0</lambertc_feast>
+<lambertc_fnorth>0.0</lambertc_fnorth>
+</lambertc>
+<mercatort>
+<mercatort_sfctrmer> </mercatort_sfctrmer>
+<mercatort_longcm> </mercatort_longcm>
+<mercatort_latprjo> </mercatort_latprjo>
+<mercatort_feast> </mercatort_feast>
+<mercatort_fnorth> </mercatort_fnorth>
+</mercatort>
+<mercator>
+<mercator_stdparll> </mercator_stdparll>
+<mercator_sfec> </mercator_sfec>
+<mercator_longcm> </mercator_longcm>
+<mercator_feast> </mercator_feast>
+<mercator_fnorth> </mercator_fnorth>
+</mercator>
+<tme>
+<tme_sfctrmer> </tme_sfctrmer>
+<tme_longcm> </tme_longcm>
+<tme_latprjo> </tme_latprjo>
+<tme_feast> </tme_feast>
+<tme_fnorth> </tme_fnorth>
+</tme>
+<anoth_proj_def>
+</anoth_proj_def>
+</mapprojn>
+<gridcoordinatessystem>
+<utm>
+<utm_zone></utm_zone>
+<utm_sfctrmer></utm_sfctrmer>
+<utm_longcm></utm_longcm>
+<utm_latprjo></utm_latprjo>
+<utm_feast></utm_feast>
+<utm_fnorth></utm_fnorth>
+</utm>
+</gridcoordinatessystem>
+<local_planar>
+<local_planar_desc></local_planar_desc>
+<local_planar_geo_inf></local_planar_geo_inf>
+</local_planar>
+<planci>
+<plance>Par coordenado.</plance>
+<coord_repres>
+<absres>1.0</absres>
+<ordres>1.0</ordres>
+</coord_repres>
+<distance_and_bearing_repres>
+<distance_res></distance_res>
+<bearing_res></bearing_res>
+<bearing_uni></bearing_uni>
+<ref_bearing_dir></ref_bearing_dir>
+<ref_bearing_mer></ref_bearing_mer>
+</distance_and_bearing_repres>
+<plandu>Metros.</plandu>
+</planci>
+</planar>
+<local_coordinates>
+<local_desc></local_desc>
+<local_geo_inf></local_geo_inf>
+</local_coordinates>
+<geodetic>
+<horizdn></horizdn>
+<ellips></ellips>
+<semiaxis> </semiaxis>
+<denflat> </denflat>
+</geodetic>
+</ReferenceHorizontalSystem>
+<ReferenceVerticalSystem>
+<altsys>
+<altdatum></altdatum>
+<altres></altres>
+<altunits></altunits>
+<altenc> </altenc>
+</altsys>
+<depthsys>
+<depthdn></depthdn>
+<depthres></depthres>
+<depthdu></depthdu>
+<depthem> </depthem>
+</depthsys>
+</ReferenceVerticalSystem>
+</MD_ReferenceSystem>
+<DQ_DataQuality>
+<DQ_Scope>
+<level>  5. Conjunto de datos espaciales: Información aplicada al conjunto de datos espaciales.</level>
+</DQ_Scope>
+<report>
+<DQ_Completeness>
+<DQ_Completeness_evalqualsubname>
+<DQ_Completeness_nameOfMeasure></DQ_Completeness_nameOfMeasure>
+<DQ_Completeness_measureDescription></DQ_Completeness_measureDescription>
+<DQ_Completeness_result>
+<DQ_Completeness_DQ_QuantitativeResult>
+<DQ_Completeness_valueUnit></DQ_Completeness_valueUnit>
+<DQ_Completeness_value></DQ_Completeness_value></DQ_Completeness_DQ_QuantitativeResult>
+</DQ_Completeness_result>
+</DQ_Completeness_evalqualsubname>
+</DQ_Completeness>
+<DQ_LogicConsistency>
+<DQ_LogicConsistency_evalqualsubname>
+<DQ_LogicConsistency_nameOfMeasure></DQ_LogicConsistency_nameOfMeasure>
+<DQ_LogicConsistency_measureDescription></DQ_LogicConsistency_measureDescription>
+<DQ_LogicConsistency_result>
+<DQ_LogicConsistency_DQ_QuantitativeResult>
+<DQ_LogicConsistency_valueUnit></DQ_LogicConsistency_valueUnit>
+<DQ_LogicConsistency_value></DQ_LogicConsistency_value></DQ_LogicConsistency_DQ_QuantitativeResult>
+</DQ_LogicConsistency_result>
+</DQ_LogicConsistency_evalqualsubname>
+</DQ_LogicConsistency>
+<PositionalAccuracy>
+<PositionalAccuracy_evalqualsubname>
+<PositionalAccuracy_nameOfMeasure></PositionalAccuracy_nameOfMeasure>
+<PositionalAccuracy_measureDescription></PositionalAccuracy_measureDescription>
+<PositionalAccuracy_result>
+<PositionalAccuracy_DQ_QuantitativeResult>
+<PositionalAccuracy_valueUnit></PositionalAccuracy_valueUnit>
+<PositionalAccuracy_value></PositionalAccuracy_value></PositionalAccuracy_DQ_QuantitativeResult>
+</PositionalAccuracy_result>
+</PositionalAccuracy_evalqualsubname>
+</PositionalAccuracy>
+<TemporalAccuracy>
+<TemporalAccuracy_evalqualsubname>
+<TemporalAccuracy_nameOfMeasure></TemporalAccuracy_nameOfMeasure>
+<TemporalAccuracy_measureDescription></TemporalAccuracy_measureDescription>
+<TemporalAccuracy_result>
+<TemporalAccuracy_DQ_QuantitativeResult>
+<TemporalAccuracy_valueUnit></TemporalAccuracy_valueUnit>
+<TemporalAccuracy_value></TemporalAccuracy_value></TemporalAccuracy_DQ_QuantitativeResult>
+</TemporalAccuracy_result>
+</TemporalAccuracy_evalqualsubname>
+</TemporalAccuracy>
+<ThematicAccuracy>
+<ThematicAccuracy_evalqualsubname>
+<ThematicAccuracy_nameOfMeasure></ThematicAccuracy_nameOfMeasure>
+<ThematicAccuracy_measureDescription></ThematicAccuracy_measureDescription>
+<ThematicAccuracy_result>
+<ThematicAccuracy_DQ_QuantitativeResult>
+<ThematicAccuracy_valueUnit></ThematicAccuracy_valueUnit>
+<ThematicAccuracy_value></ThematicAccuracy_value></ThematicAccuracy_DQ_QuantitativeResult>
+</ThematicAccuracy_result>
+</ThematicAccuracy_evalqualsubname>
+</ThematicAccuracy>
+</report>
+<LI_Lineage>
+<statement>La generación de coordenadas geográficas de accidentes de tránsito es un proyecto realizado por el INEGI a partir del trabajo conjunto de la Dirección de Estadísticas Económicas de Registros Administrativos (DEERA), la Dirección General de Geografía y Medio Ambiente (DGGMA) y la Subdirección de Desarrollo de Sistemas Informáticos B (SDSI). Correspondió a la DEERA realizar los trabajos técnicos sobre la generación de coordenadas geográficas de eventos viales para los años 2019 y 2020, localizadas para diversas ciudades dentro del territorio nacional, tomando como insumo los registros de la Estadística de Accidentes de Tránsito en Zonas Urbanas y Suburbanas (ATUS); mientras que la Subdirección de Desarrollo de Sistemas Informáticos B proporcionó los elementos técnicos necesarios para la presentación de la información a través de la herramienta Espacio y Datos de México. Asimismo, la DGGMA proporcionó el Sistema de Alta y Georreferenciación de Accidentes de Tránsito, en el cual se localizaron geográficamente los accidentes de tránsito correspondientes a los años 2021, 2022 y 2023. Adicionalmente, proporcionó una serie de procesos como la identificación de coordenadas con longitud y latitud válidas para un sistema coordenado, así como un análisis espacial de intersección con la capa de manzanas extraída del Marco Geoestadístico Nacional, para obtener aquellos registros que se encuentran contenidos en alguna manzana, que permiten la evaluación de la información, contribuyendo en el aumento de la calidad de la misma.
+
+La DEERA realizó la localización geográfica de accidentes de tránsito de los años 2019 y 2020 mediante una plataforma de generación de coordenadas proporcionado por la Dirección Regional Sureste y sustentada por Google Maps, en la cual se realizó la búsqueda del domicilio del accidente, siendo este último tomado de las bases de accidentes de tránsito, el cual se especifica en las columnas Calle1, Calle2 y Carretera.</statement>
+<LI_ProcessStep>
+<LI_ProcessStep_description>1. Perfilado de la información. Mediante Microsoft Excel para Microsoft 365 MSO, se revisaron detalladamente las bases de datos de la Estadística de Accidentes de Tránsito en Zonas Urbanas y Suburbanas, a fin de conocer la estructura, formato y nivel de la calidad de información, para la creación de reglas de negocio que permitieran generar una nueva estructura homologada de las bases y mejorar su aprovechamiento. En esta etapa, a partir del filtrado manual de las columnas Calle 1, Calle 2 y Carretera, se identificaron los registros con valores nulos, registros en blanco o sin información, así como el número de caracteres en mayúsculas y minúsculas.</LI_ProcessStep_description>
+<LI_ProcessStep_description>2. Higiene de la información. Se corrigen y eliminan los registros que presenten información incorrecta, con formato inapropiado o con ausencia de información de las bases de datos. En esta etapa todos los registros referentes a los campos Calle 1, Calle  y, Carretera se transforman a mayúsculas, se eliminan los espacios innecesarios, se expanden las abreviaturas y se sustituyen los nombres de vialidades con faltas de ortografía.</LI_ProcessStep_description>
+<LI_ProcessStep_description>3. Estandarización y estructuración. Se realiza la correcta distribución y estructuración, de cada variable geográfica del incidente vial con la finalidad de poder ser identificado y categorizado. En esta etapa los campos Calle 1, Calle 2, Carretera, Asentamiento humano, Número exterior y Referencia se separan de las bases originales para la generación de coordenadas, y se ordenan por su tipo y nombre. Para la generación de los años 2019 y 2020, se integra esta información en una cadena concatenada denominada "Dirección" para su aprovechamiento. Para el año 2021, 2022 y 2023 la categorización de estas variables se presenta en un documento de Excel en formato delimitado por comas (csv), mismo que servirá de insumo para la localización geográfica de accidentes de tránsito a través del Sistema de Alta y Georreferenciación de Accidentes (SAGA).
+</LI_ProcessStep_description>
+<LI_ProcessStep_description>4. Generación de coordenadas geográficas. Una vez que se tuvo la base de datos con los criterios de limpieza y estandarización aplicados, ésta se vincula a la plataforma de generación de coordenadas de Google Maps. Para vincularlo, es importante que el archivo de Excel se suba en formato CSV, y que contenga dos columnas que corresponderán a los siguientes campos: Número de Identificación (ID) y Dirección.
+
+La plataforma de Google Maps identificará, de acuerdo con la información previamente cargada, la ubicación geográfica del accidente de tránsito. En esta etapa, la principal actividad consistirá en identificar aquellas coordenadas que se localizan en una ubicación distinta de la que les corresponde para asignarlas en el sitio adecuado, removiendo el punto al lugar pertinente. Una vez que se realiza esto, el punto geográfico se ilumina de azul indicando su correcta ubicación. En el caso de que una dirección geográfica no sea válida o sea inexistente, se procede a su eliminación.
+
+A partir del año 2021, se implementó el uso del Sistema de Alta y Georreferenciación de Accidentes (SAGA), el cual permitió la carga de archivos depurados en formato delimitado por comas (csv) para asignar, corregir o corroborar coordenadas geográficas a cada uno de los registros de accidentes de tránsito terrestres. De este modo los registros validados se integraron en la base de datos de este Sistema. La actividad en el SAGA consiste en identificar la correcta ubicación del accidente terrestre, apoyándose del Marco geoestadístico Nacional para identificar cruces viales o referencias que permitan identificar el sitio donde se dió el hecho de tránsito.
+</LI_ProcessStep_description>
+<LI_ProcessStep_description>5. Validación de coordenadas geográficas. El conjunto de coordenadas geográficas es enviado mediante archivos Excel a la DGGMA, la cual llevará a cabo tres procesos de validación. La identificación de coordenadas con longitud y latitud válidas para un sistema coordenado, un análisis espacial de intersección con la capa de manzanas extraída del Marco Geoestadístico Nacional, para obtener aquellos registros que se encuentran contenidos en alguna manzana, además de emparejar el conjunto de coordenadas geográficas al Marco Geoestadístico Nacional (2019).
+
+A partir del año 2021, la validación es realizada por la DGGMA mediante la explotación de la base de datos del SAGA. Asimismo, una vez realizada la extracción de información desde el sistema, la DEERA realiza un método de validación a través de Qgis, el cual consiste en la verificación de todos los incidentes viales dentro de una avenida, así como dentro de la demarcación territorial.</LI_ProcessStep_description>
+<LI_ProcessStep_description>Tecnología utilizada. Equipo de cómputo Lenovo Thinkpad E585, AMD Ryzen 3 2200U with Radeon Vega Mobile Gfx 2.50 GHz, Windows 10, 16 GB, 930 GB SSD.
+
+Tecnología utilizada. Software. 1. Plataforma de generación de coordenadas Google Maps. Para la obtención de coordenadas geográficas de accidentes de tránsito. 
+
+2. Mapa Digital de México. Para la validación de la precisión de las coordenadas geográficas. 
+
+3. Excel para Microsoft 365 MSO. Para el perfilado, limpieza, homogenización y estructuración de la base de datos.
+
+4. QGis. Para el análisis de las coordenadas obtenidas y la generación de direcciones homologadas de los accidentes de tránsito.
+
+5. PostGis. Para la validación de coordenadas geográficas a partir de su asignación a la intersección más cercana.
+
+6. Sistema de Alta y Georreferenciación de Accidentes (SAGA). Para la verificación y ubicación de accidentes de tránsito.</LI_ProcessStep_description>
+<LI_ProcessStep_description>1 Control de calidad. 
+
+Criterio: Exactitud posicional. 
+
+Subcriterio: Exactitud relativa 
+
+Ámbito de la revisión. Se revisan todas las direcciones (intersecciones viales, puntos de referencia, etc) que conforman la base de datos de ATUS. 
+
+Tipo de inspección. Completa.
+
+Tipo de muestreo, tamaño de la muestra y porcentaje de la muestra. No aplica.
+
+Explicación de la revisión. Se realiza la búsqueda de todo el conjunto de coordenadas geográficas de accidentes de tránsito, identificando aquellas coordenadas que se encuentran en una ubicación distinta de la que les corresponde, a fin de asignarles el domicilio correcto, removiendo así el punto al lugar pertinente. Para el año 2019 y 2020 esta actividad se realizó desde una plataforma generadora de coordenadas sustentada en Google Maps. A partir del año 2021, la actividad se realiza en el Sistema de Alta y Georreferenciación de Accidentes (SAGA).
+
+Resultado. Para el año 2019 se tuvo un porcentaje de 78% ubicados geográficamente de manera exitosa, respecto del total de conjunto de datos revisado. Para el año 2020, se tuvo un total de 83.9% accidentes ubicados de manera exitosa respecto del conjunto de datos revisado. Para el año 2021, se obtuvo un total de 79.2% de accidentes de tránsito ubicados de manera correcta. Para el 2022, se obtuvo un 86.5% de registros ubicados geográficamente, mientras que para el 2023 se obtuvo un 86.8% de incidentes viales localizados de manera exitosa, respecto del total del conjunto de datos
+
+Nivel de conformidad de calidad. No aplica
+
+Datos de referencia. Base de datos de Accidentes de Tránsito en Zonas Urbanas y Suburbanas (ATUS), específicamente las variables Calle1, Calle2 y Carretera, así como las intersecciones de la capa de ejes viales del Marco Geoestadístico (2019).
+
+Fecha o periodo de realización. Septiembre 2023.
+
+Evaluador. Dirección de Estadísticas Económicas de Registros Administrativos (DEERA) y la Dirección de Soluciones Geomáticas
+</LI_ProcessStep_description>
+</LI_ProcessStep>
+<LI_Source>
+<LI_Source_description>FUENTE 1. Bases de datos del programa estadístico de Accidentes de Tránsito en Zonas Urbanas y Suburbanas (ATUS), para el periodo 2019 - 2023.</LI_Source_description>
+</LI_Source>
+</LI_Lineage>
+</DQ_DataQuality>
+<Attributes>
+<schemaAscii>La definición de entidad del conjunto es de tipo vectorial, donde la forma digital de los elementos son puntos, en un área específica y sobre un fenómeno geográfico. Sus atributos corresponden a la identificación de accidentes de tránsito terrestre por la zona donde ocurren, por su Tipo, Clase, Hora, Día y Víctimas registradas; correspondiente a 198 zonas geográficas en el país (182 municipios y 16 alcaldías de la Ciudad de México).</schemaAscii>
+<entity_detail>Sitio web del programa estadístico de Accidentes de Tránsito en Zonas Urbanas y Suburbanas:
+
+https://www.inegi.org.mx/programas/accidentes/default.html#Tabulados</entity_detail>
+</Attributes>
+<MD_Distribution>
+<accessConstraints>8. Acceso al público a través de internet y los Centros de Información del Instituto Nacional de Estadística y Geografía - INEGI.</accessConstraints>
+<useConstraints>8. Ninguna</useConstraints>
+<otherConstraints>El INEGI no se hace responsable por el uso que se le dé a los datos</otherConstraints>
+<MD_Format>
+<name> </name>
+<version> </version>
+</MD_Format>
+</MD_Distribution>
+<Inf_Metadata>
+<metadataStandardName>ISO 19115 Información Geográfica - Metadatos (Norma Técnica para Metadatos).</metadataStandardName>
+<metadataStandardVersion>2003 (1.0).</metadataStandardVersion>
+<Inf_Metadata_language>ES - Español.</Inf_Metadata_language>
+<CI_ResponsibleParty>
+<Inf_Metadata_CI_ResponsibleParty_individualName> Lic. Rafael Arrioja Urzúa.</Inf_Metadata_CI_ResponsibleParty_individualName>
+<Inf_Metadata_CI_ResponsibleParty_organisationName> Instituto Nacional de Estadística y Geografía - INEGI.</Inf_Metadata_CI_ResponsibleParty_organisationName>
+<Inf_Metadata_CI_ResponsibleParty_positionName> Jefe del Departamento de Administración de Metadatos.</Inf_Metadata_CI_ResponsibleParty_positionName>
+<Inf_Metadata_CI_ResponsibleParty_voice>44 99 10 53 00 Ext. 1750 y 5631</Inf_Metadata_CI_ResponsibleParty_voice>
+<Inf_Metadata_CI_ResponsibleParty_facsimile></Inf_Metadata_CI_ResponsibleParty_facsimile>
+<Inf_Metadata_CI_ResponsibleParty_deliveryPoint>Avenida Héroe de Nacozari Sur 2301. Fraccionamiento Jardines del Parque. C.P. 20276. Aguascalientes, Aguascalientes. Entre Calle INEGI, Avenida del Lago y Avenida Paseo de las Garzas.</Inf_Metadata_CI_ResponsibleParty_deliveryPoint>
+<Inf_Metadata_CI_ResponsibleParty_city> Aguascalientes.</Inf_Metadata_CI_ResponsibleParty_city>
+<Inf_Metadata_CI_ResponsibleParty_administrativeArea> Aguascalientes.</Inf_Metadata_CI_ResponsibleParty_administrativeArea>
+<Inf_Metadata_CI_ResponsibleParty_postalCode>20276</Inf_Metadata_CI_ResponsibleParty_postalCode>
+<Inf_Metadata_CI_ResponsibleParty_country> México.</Inf_Metadata_CI_ResponsibleParty_country>
+<Inf_Metadata_CI_ResponsibleParty_electronicMailAddress>rafael.arrioja@inegi.org.mx</Inf_Metadata_CI_ResponsibleParty_electronicMailAddress>
+<Inf_Metadata_CI_ResponsibleParty_role>  7. Punto de contacto: Parte que puede ser contactada para informarse sobre el recurso o adquisición del mismo.</Inf_Metadata_CI_ResponsibleParty_role>
+</CI_ResponsibleParty>
+<dateStamp>2023-11-14</dateStamp>
+<Inf_Metadata_characterSet>  6. 8859parte1: ISO/IEC 8859-1, Tecnologías de la Información - Conjuntos de caracteres gráficos codificados de 8-bit por byte - Parte 1: Alfabeto Latino No.1.</Inf_Metadata_characterSet>
+</Inf_Metadata>
+</Metadata>

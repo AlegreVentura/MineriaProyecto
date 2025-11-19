@@ -1,0 +1,74 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+*.ipynb_checkpoints
+
+# Cache
+cache/
+*.cache
+.cache/
+
+# Temporales
+temp_*
+*.tmp
+*_temp.*
+nul
+
+# Archivos de debug/verificación
+*_DEBUG.txt
+CAMBIOS_*.txt
+REPORTE_*.txt
+RESUMEN_*.txt
+verificacion_*.txt
+celdas_problematicas.txt
+info_grafo.txt
+celda_*.txt
+modelos_definicion.txt
+
+# Copias de seguridad
+*copy.ipynb
+* copy.*
+copias de seguridad/
+backup/
+
+# IDEs y editores
+.vscode/
+.idea/
+.claude/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Sistema operativo
+Thumbs.db
+desktop.ini
+
+# Archivos grandes de datos (opcional - descomentar si no quieres subir CSVs)
+# *.csv
+# *.graphml
