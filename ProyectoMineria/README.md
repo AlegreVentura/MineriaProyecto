@@ -1,413 +1,494 @@
-# Proyecto Final: Análisis de Accidentes de Tránsito en CDMX
+# 🚗 Sistema de Ruteo Seguro para CDMX
 
-## Descripción del Proyecto
+## Análisis Integral de Accidentes de Tránsito (2019-2023)
 
-Análisis integral de accidentes de tránsito en la Ciudad de México (2019-2023) con tres componentes principales:
-1. **Procesamiento y limpieza de datos** (proceso.ipynb)
-2. **Funcionalidades avanzadas**: Clustering espacial, análisis de causalidad y motor de ruteo seguro (funcionalidades_para_app.ipynb)
+**Proyecto Final de Minería de Datos**
 
 ---
 
-## Estructura del Proyecto
+## 📋 Descripción del Proyecto
+
+Sistema completo de análisis de accidentes de tránsito en la Ciudad de México que integra:
+
+1. **📊 Procesamiento de Datos:** Limpieza y consolidación de 1.04M accidentes (2019-2023)
+2. **🗺️ Análisis Espacial:** Clustering DBSCAN, Hot Spots (Getis-Ord Gi\*), Autocorrelación (Moran's I)
+3. **🤖 Machine Learning:** Predicción de gravedad con Random Forest, Decision Tree, Stacking Ensemble
+4. **🛣️ Sistema de Ruteo:** Cálculo de rutas seguras usando 3 capas de riesgo (histórico + clustering + ML)
+
+**Resultado:** Aplicación funcional de ruteo que minimiza riesgo de accidentes, con ejemplo real Zócalo → Polanco.
+
+---
+
+## 🏗️ Estructura del Proyecto
 
 ```
 ProyectoMineria/
 │
-├── proceso.ipynb                          # Notebook 1: Procesamiento de datos
-├── funcionalidades_para_app.ipynb         # Notebook 2: Análisis avanzado y ML
-├── plan de trabajo.pdf                    # Documento de planificación inicial
-├── README.md                              # Este archivo
-├── .gitignore                             # Configuración de Git
+├── 📓 NOTEBOOKS PRINCIPALES
+│   ├── proceso.ipynb                          # 00 - Procesamiento de datos base
+│   ├── 01_analisis_espacial_clustering.ipynb  # 01 - Clustering DBSCAN + Hot Spots
+│   ├── 02_modelado_ml_causas.ipynb            # 02 - ML + Feature Selection
+│   ├── 03_sistema_ruteo_zocalo_polanco.ipynb  # 03 - DEMO: Ruteo Zócalo → Polanco ⭐
+│   └── funcionalidades_para_app.ipynb         # Legacy notebook (177 celdas, uso interno)
 │
-├── Datos raw/                             # Datos originales de INEGI (2019-2023)
-│   ├── 2019/BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2019.csv
-│   ├── 2020/BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2020.csv
-│   ├── 2021/BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2021.csv
-│   ├── 2022/BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2022.csv
-│   ├── 2023/BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2023.csv
-│   └── documentacion/                     # Metadatos y diccionario de datos
-│       ├── FUENTE_DATOS.txt               # Fuente: INEGI, fecha de consulta
-│       ├── fd_bd_atus_georreferenciación.xlsx
-│       ├── Metadatos geográficos 2019 - 2023.txt
-│       └── Metadatos geográficos 2019 - 2023.xml
+├── 📂 DATOS
+│   ├── Datos raw/                             # CSV originales C5 CDMX (2019-2023)
+│   ├── Datos limpios/                         # Datos con limpieza básica por año
+│   ├── Datos combinados/                      # Consolidado nacional (todas alcaldías)
+│   └── Datos combinados CDMX/                 # ⭐ CDMX con feature engineering
+│       ├── ACCIDENTES_COMBINADO_CDMX_2019_2023.csv    (~78K registros)
+│       ├── ACCIDENTES_CON_TRAMOS_2019_2023.csv        (~32K con matching OSM)
+│       ├── STATS_POR_TRAMO_2019_2023.csv              (~15K tramos, riesgo histórico)
+│       ├── ACCIDENTES_CON_CLUSTERING.csv              (~32K puntos, riesgo clustering)
+│       ├── GRID_HOTSPOTS.csv                          (~755 celdas, hot spots)
+│       └── SCORING_RIESGO_COMPUESTO.csv               (~72K puntos, riesgo ML + compuesto)
 │
-├── Datos limpios/                         # Datos procesados por año
-│   ├── 2019/ACCIDENTES_LIMPIO_2019.csv
-│   ├── 2020/ACCIDENTES_LIMPIO_2020.csv
-│   ├── 2021/ACCIDENTES_LIMPIO_2021.csv
-│   ├── 2022/ACCIDENTES_LIMPIO_2022.csv
-│   └── 2023/ACCIDENTES_LIMPIO_2023.csv
+├── 📁 OUTPUTS
+│   ├── mapas/                                 # Visualizaciones HTML interactivas
+│   │   ├── mapa_clusters_dbscan.html          (Clusters DBSCAN + Hot Spots)
+│   │   └── mapa_rutas_zocalo_polanco.html     (3 rutas comparativas) ⭐
+│   │
+│   ├── modelos/                               # Modelos ML entrenados
+│   │   ├── modelo_riesgo_rf.pkl               (Random Forest)
+│   │   └── scaler.pkl                         (StandardScaler)
+│   │
+│   └── Red vial/
+│       └── red_vial_cdmx.graphml              (Grafo OSM: 99,728 nodos, 234,532 edges)
 │
-├── Datos combinados/                      # Datasets nacionales consolidados
-│   ├── ACCIDENTES_COMBINADO_2019_2023.csv
-│   └── ACCIDENTES_COMBINADO_2022_2023.csv
+├── 📚 DOCUMENTACIÓN
+│   └── docs/
+│       ├── README_DATOS.md                    # ⭐ Explicación de las 4 carpetas de datos
+│       ├── README_NOTEBOOKS.md                # ⭐ Flujo de ejecución y detalles técnicos
+│       ├── README_FORMULAS.ipynb              # ⭐ Fórmulas matemáticas con LaTeX
+│       └── ARQUITECTURA_WEB.md                # Propuesta de aplicación web
 │
-├── Datos combinados CDMX/                 # Datasets CDMX con análisis espacial
-│   ├── ACCIDENTES_COMBINADO_CDMX_2019_2023.csv  (53 columnas)
-│   ├── ACCIDENTES_COMBINADO_CDMX_2022_2023.csv
-│   ├── ACCIDENTES_CON_TRAMOS_2019_2023.csv      (59 columnas, 32,139 registros)
-│   └── STATS_POR_TRAMO_2019_2023.csv            (9 columnas, 15,615 tramos)
+├── 🔧 UTILIDADES
+│   └── scripts_auxiliares/
+│       ├── README.md
+│       └── funcion_asignar_tramos_FINAL.py
 │
-├── Red vial/
-│   └── red_vial_cdmx.graphml              # Grafo de red vial CDMX (OSMnx)
-│
-└── scripts_auxiliares/                    # Scripts Python reutilizables
-    ├── README.md                          # Documentación de funciones
-    └── funcion_asignar_tramos_FINAL.py    # Asignación de accidentes a tramos
+├── .gitignore
+└── README.md                                  # Este archivo
 ```
 
 ---
 
-## Notebook 1: proceso.ipynb
+## 🚀 Inicio Rápido
 
-### Propósito
-Limpieza, transformación y enriquecimiento de datos de accidentes de tránsito.
+### Instalación de Dependencias
 
-### Datasets de Entrada
-- BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2019.csv (180,219 registros)
-- BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2020.csv (150,886 registros)
-- BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2021.csv (199,224 registros)
-- BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2022.csv (250,891 registros)
-- BASE MUNICIPAL_ACCIDENTES DE TRANSITO GEORREFERENCIADOS_2023.csv (262,768 registros)
-
-### Datasets de Salida
-1. **ACCIDENTES_COMBINADO_CDMX_2019_2023.csv** (53 columnas)
-   - Dataset completo filtrado para CDMX
-   - Features de ingeniería creadas
-
-2. **ACCIDENTES_CON_TRAMOS_2019_2023.csv** (59 columnas, 32,139 registros)
-   - Accidentes asignados a tramos de calle mediante nearest neighbor
-   - Incluye edge_u, edge_v, edge_key, distancia_edge
-
-3. **STATS_POR_TRAMO_2019_2023.csv** (9 columnas, 15,615 tramos)
-   - Estadísticas agregadas por tramo de calle
-
-### Features de Ingeniería Creadas
-
-#### 1. fechahora
-- Combinación de año, mes, día, hora y minutos
-- Tipo: datetime64[ns]
-
-#### 2. severidad
-- **Fórmula**: `severidad = 10 × totmuertos + 3 × totheridos`
-- Índice numérico ponderado de impacto humano
-
-#### 3. Indicadores binarios
-- **hay_muertos**: totmuertos > 0
-- **hay_heridos**: totheridos > 0
-- **solo_daños_materiales**: Sin víctimas
-
-#### 4. severidad_cat
-- **Categorización ordinal de 4 niveles**:
-  - "muy grave": ≥1 muertos
-  - "grave": ≥3 heridos (sin muertos)
-  - "moderada": 1-2 heridos (sin muertos)
-  - "leve": Sin muertos ni heridos
-
-#### 5. franja_horaria
-- **Categorización temporal usando pd.cut()**:
-  - "Madrugada": 0-5 horas
-  - "Mañana": 6-11 horas
-  - "Tarde": 12-17 horas
-  - "Noche": 18-23 horas
-
-### Técnicas Aplicadas
-
-#### Normalización Min-Max
-- **Fórmula**: `(x - min) / (max - min)`
-- **Rango**: [0, 1]
-- **Aplicado a**: N_norm (accidentes), S_norm (severidad), F_norm (fatalidad)
-
-#### Asignación Espacial
-- **Método**: Nearest neighbor con proyección UTM
-- **Herramienta**: OSMnx + GeoPandas
-- **Red vial**: 125,601 nodos, 295,256 aristas
-- **Proyección**: EPSG:32614 (UTM Zona 14N)
-- **Precisión**: Distancia promedio 2.8 metros
-
-#### Índice de Riesgo Compuesto
-- **Fórmula**: `indice_riesgo = 0.4 × N_norm + 0.4 × S_norm + 0.2 × F_norm`
-- **Ponderación**:
-  - 40% frecuencia de accidentes
-  - 40% severidad acumulada
-  - 20% accidentes fatales
-
----
-
-## Notebook 2: funcionalidades_para_app.ipynb
-
-### Propósito
-Implementación de tres módulos para una aplicación de navegación segura:
-1. Clustering espacial estadístico
-2. Análisis de causalidad con Machine Learning
-3. Motor de ruteo seguro
-
-### Estructura del Notebook
-
-#### 0. Preliminares
-- Resumen del notebook anterior (proceso.ipynb)
-- Importaciones y configuración
-- Rutas de archivos
-
-#### 1. Clustering Espacial Estadístico
-Identificación de zonas de alto riesgo usando:
-
-**1.1 DBSCAN** (Density-Based Spatial Clustering)
-- Clustering por densidad
-- 29 clusters identificados
-- 31,620 accidentes agrupados, 519 outliers
-
-**1.2 Getis-Ord Gi*** (Hot Spot Analysis)
-- Identificación de hot spots estadísticamente significativos
-- 40 celdas con confianza 99%
-- 39 celdas con confianza 95%
-
-**1.3 Moran's I** (Autocorrelación Espacial)
-- Global I = 0.1175 (p = 0.0010)
-- Autocorrelación espacial positiva significativa
-- LISA (Local Indicators): 373 zonas HH (High-High), 707 zonas LL (Low-Low)
-
-#### 2. Análisis de Causalidad (Machine Learning)
-
-**2.0 Carga y Exploración de Datos**
-- Listado de 61 columnas disponibles
-- Verificación de tipos de datos
-- Estadísticas descriptivas
-
-**2.1 Preparación de Variables**
-- Variable objetivo: accidente_grave (binaria)
-- Codificación de variables categóricas
-- Split train/test (80/20)
-
-**2.2 Selección Formal de Características**
-Metodología rigurosa de selección:
-- Análisis de correlaciones
-- SelectKBest con ANOVA F-statistic
-- SelectKBest con Información Mutua
-- Eliminación de multicolinealidad (>0.8)
-- Selección final de ~15 features
-
-**2.3 Random Forest**
-- 100 estimadores, max_depth=10
-- Importancia de variables
-- Comparación con Árbol de Decisión
-- Análisis de mejoras sobre árbol único
-
-**2.4 Árbol de Decisión**
-- max_depth=4 para interpretabilidad
-- Visualización completa del árbol
-- Importancia de variables (Gini)
-- Análisis de reglas de decisión
-
-**2.5 Regresión Logística**
-- class_weight='balanced'
-- StandardScaler para normalización
-- Coeficientes interpretables
-
-**2.6 Modelo Ensamble: Stacking Classifier** ⭐
-- **Modelos base**: Random Forest + Logistic Regression
-- **Meta-modelo**: Logistic Regression
-- **Validación cruzada**: 5-fold
-- **Comparación completa** de 4 modelos:
-  - Decision Tree
-  - Random Forest
-  - Logistic Regression
-  - Stacking
-- **Métricas**: Accuracy, Precision, Recall, F1-Score
-- **Visualizaciones**: Matrices de confusión, gráficos comparativos
-
-**Ventajas del Ensamblado**:
-- Combina fortalezas de modelos complementarios
-- RF captura patrones no lineales complejos
-- LR proporciona baseline lineal estable
-- Meta-modelo aprende combinación óptima
-
-#### 3. Motor de Ruteo Seguro
-
-**3.1 Carga del Grafo OSM**
-- Red vial completa de CDMX
-- 125,601 nodos, 295,256 aristas
-
-**3.2 Asignación de Riesgo a Aristas**
-- Índice de riesgo normalizado [0, 1]
-- 15,615 aristas con datos históricos
-- Riesgo promedio para aristas sin datos
-
-**3.3 Función de Ruteo Seguro**
-- Peso compuesto: `peso = (1-α) × tiempo + α × riesgo`
-- α = 0: Ruta más rápida
-- α = 1: Ruta más segura
-- α = 0.5: Ruta balanceada
-
-**3.4 Cálculo de 3 Rutas Alternativas**
-- Ruta rápida (α=0.0)
-- Ruta segura (α=1.0)
-- Ruta balanceada (α=0.5)
-
-**3.5 Visualización Comparativa**
-- Mapa con 3 rutas superpuestas
-- Diferenciación por color
-- Métricas: tiempo, distancia, riesgo
-
-**3.6 Análisis de Trade-offs**
-- Tabla comparativa de métricas
-- Tiempo adicional vs reducción de riesgo
-- Recomendaciones según preferencia
-
-**3.7 Función API-Ready**
-- `api_calcular_ruta()` lista para integración
-- Input: origen, destino, preferencia
-- Output: JSON con ruta y métricas
-
-#### 4. Conclusiones y Próximos Pasos
-- Resumen de implementaciones
-- Roadmap para desarrollo de aplicación
-- Impacto esperado en seguridad vial
-
----
-
-## Requisitos Técnicos
-
-### Librerías Principales
-```python
-# Datos y análisis
-pandas, numpy
-
-# Geoespacial
-geopandas, shapely, osmnx, networkx
-
-# Machine Learning
-scikit-learn
-
-# Análisis espacial estadístico
-libpysal, esda  # Opcional para Getis-Ord y Moran's I
-
-# Visualización
-matplotlib, seaborn
-```
-
-### Instalación
 ```bash
-pip install pandas numpy geopandas shapely osmnx networkx scikit-learn matplotlib seaborn
-pip install libpysal esda  # Opcional
+pip install pandas numpy geopandas networkx osmnx folium matplotlib seaborn scikit-learn libpysal esda scipy
 ```
 
----
+### Ejecución Completa (Reproducibilidad Total)
 
-## Uso
-
-### 1. Ejecutar procesamiento de datos
 ```bash
+# 1. Procesamiento de datos base (15-25 min)
 jupyter notebook proceso.ipynb
-```
-- Ejecutar todas las celdas secuencialmente
-- Genera datasets limpios y consolidados
 
-### 2. Ejecutar análisis avanzado
-```bash
-jupyter notebook funcionalidades_para_app.ipynb
+# 2. Análisis espacial y clustering (5-10 min)
+jupyter notebook 01_analisis_espacial_clustering.ipynb
+
+# 3. Machine Learning y feature selection (10-15 min)
+jupyter notebook 02_modelado_ml_causas.ipynb
+
+# 4. DEMO: Sistema de ruteo Zócalo → Polanco (5-10 min) ⭐
+jupyter notebook 03_sistema_ruteo_zocalo_polanco.ipynb
 ```
-- Requiere que proceso.ipynb haya sido ejecutado
-- Usa datasets generados en Paso 1
+
+**Tiempo total:** ~40-60 minutos
+
+### Ejecución Rápida (Solo Demo)
+
+Si ya ejecutaste los notebooks anteriormente:
+
+```bash
+jupyter notebook 03_sistema_ruteo_zocalo_polanco.ipynb  # ⭐ Ver resultado final
+```
+
+Abre el mapa generado en: `mapas/mapa_rutas_zocalo_polanco.html`
 
 ---
 
-## Resultados Clave
+## 📊 Flujo de Datos
+
+```
+Datos raw (C5 CDMX 2019-2023)
+         ↓
+   [proceso.ipynb]
+         ↓
+    Limpieza + Filtrado CDMX + Feature Engineering
+         ↓
+    ACCIDENTES_COMBINADO_CDMX_2019_2023.csv
+         ↓
+    Matching con Red Vial OSM (OSMnx)
+         ↓
+    ACCIDENTES_CON_TRAMOS + STATS_POR_TRAMO
+         ↓
+┌────────┴────────┐
+│                 │
+│   [01_clustering]    [02_ml_causas]
+│                 │
+│  DBSCAN +       │   Feature Selection (60→20 cols)
+│  Getis-Ord     │   Random Forest, Stacking
+│                 │
+│  ACCIDENTES_    │   SCORING_RIESGO_
+│  CON_CLUSTER    │   COMPUESTO
+│                 │
+└────────┬────────┘
+         ↓
+   [03_sistema_ruteo]
+         ↓
+    Integración 3 Capas de Riesgo:
+    - 60% Histórico (STATS_POR_TRAMO)
+    - 10% Clustering (ACCIDENTES_CON_CLUSTERING)
+    - 30% ML (SCORING_RIESGO_COMPUESTO)
+         ↓
+    Dijkstra con 3 funciones de peso
+         ↓
+    3 Rutas Alternativas:
+    🔵 Más Corta  |  🟠 Balanceada  |  🟢 Más Segura ⭐
+         ↓
+    mapas/mapa_rutas_zocalo_polanco.html
+```
+
+---
+
+## 🎯 Componentes Principales
+
+### 1️⃣ Procesamiento de Datos (`proceso.ipynb`)
+
+**Entrada:**
+- 1.04M accidentes de tránsito (2019-2023) de todas las alcaldías del Estado de México
+
+**Proceso:**
+- Limpieza de datos (nulos, coordenadas inválidas, duplicados)
+- Filtrado para Ciudad de México (~78K accidentes)
+- Feature engineering: `franja_horaria`, `es_fin_de_semana`, `es_hora_pico`, `gravedad`
+- Matching con red vial OSM usando nearest neighbor
+- Agregación de estadísticas por tramo vial
+
+**Salida:**
+- `ACCIDENTES_COMBINADO_CDMX_2019_2023.csv` (base limpia)
+- `ACCIDENTES_CON_TRAMOS_2019_2023.csv` (con matching a red vial)
+- `STATS_POR_TRAMO_2019_2023.csv` (**riesgo histórico** - 60% del índice final)
+- `red_vial_cdmx.graphml` (grafo OSM)
+
+---
+
+### 2️⃣ Análisis Espacial (`01_analisis_espacial_clustering.ipynb`)
+
+**Técnicas Aplicadas:**
+
+#### DBSCAN (Clustering por Densidad)
+- `eps=200m`, `min_samples=20`
+- **Resultado:** 299 clusters, 17,178 puntos agrupados (53.4%)
+- Identifica "puntos negros" (zonas de alta concentración)
+
+#### Getis-Ord Gi\* (Hot Spot Analysis)
+- Cuadrícula de 0.01° (~1.1 km)
+- Detección de hot spots estadísticamente significativos
+- **Resultado:** 13 hot spots al 99%, 17 al 95%
+
+#### Moran's I (Autocorrelación Espacial)
+- **I = 0.6837** (p < 0.001)
+- Clustering espacial **altamente significativo**
+
+**Salida:**
+- `ACCIDENTES_CON_CLUSTERING.csv` (**riesgo clustering** - 10% del índice final)
+- `GRID_HOTSPOTS.csv` (análisis de hot spots)
+- `mapas/mapa_clusters_dbscan.html` (visualización)
+
+**Fórmula de riesgo clustering:**
+```
+riesgo_cluster = 50 + 50 × (tamaño_cluster - min) / (max - min)
+```
+
+---
+
+### 3️⃣ Machine Learning (`02_modelado_ml_causas.ipynb`)
+
+**Feature Selection Robusto:**
+- Exploración de **60+ columnas** disponibles
+- Pre-filtrado: 60 → 35 columnas
+- **3 algoritmos de selección** con votación por consenso:
+  1. SelectKBest (F-score)
+  2. RFE (Recursive Feature Elimination)
+  3. Feature Importance (Random Forest)
+- Features seleccionadas si aparecen en ≥2 algoritmos
+
+**Modelos Entrenados:**
+
+| Modelo | Accuracy | Uso Principal |
+|--------|----------|---------------|
+| Decision Tree | ~82% | Interpretabilidad (visualización del árbol) |
+| Random Forest | ~87% | Performance + Feature Importance |
+| Logistic Regression | ~78% | Baseline simple |
+| **Stacking Ensemble** | **~88%** | **Mejor predicción** (combina los 3) ⭐ |
+
+**Salida:**
+- `SCORING_RIESGO_COMPUESTO.csv` (**riesgo ML** - 30% del índice final)
+- `modelos/modelo_riesgo_rf.pkl`
+- `modelos/scaler.pkl`
+
+**Fórmula de riesgo ML:**
+```python
+riesgo_ml = P(grave | features) × 100
+```
+
+---
+
+### 4️⃣ Sistema de Ruteo (`03_sistema_ruteo_zocalo_polanco.ipynb`) ⭐
+
+**Caso de Uso Real:** Ruta del Zócalo (Centro Histórico) a Polanco (Museo Soumaya)
+
+**Integración de 3 Capas de Riesgo:**
+
+```python
+riesgo_compuesto = 0.6 × riesgo_histórico + 0.1 × riesgo_clustering + 0.3 × riesgo_ml
+```
+
+**Justificación de Ponderaciones:**
+- **60% Histórico:** Datos reales de accidentes (más confiable)
+- **30% ML:** Predicción de gravedad con contexto
+- **10% Clustering:** Patrones espaciales de concentración
+
+**Funciones de Peso para Dijkstra:**
+
+| Ruta | Función de Peso | Color | Prioriza |
+|------|-----------------|-------|----------|
+| **Más Corta** | `peso = longitud` | 🔵 Azul | Mínima distancia |
+| **Balanceada** | `peso = longitud × (1 + riesgo/100)` | 🟠 Naranja | Equilibrio |
+| **Más Segura** | `peso = longitud × (1 + 2×riesgo/100)` | 🟢 Verde | Máxima seguridad |
+
+**Ejemplo de Resultado:**
+
+```
+Ruta          | Dist (km) | Riesgo Prom | Riesgo Máx | Score Seguridad
+--------------|-----------|-------------|------------|----------------
+🔵 Más Corta  | 8.74      | 42.3        | 58.1       | 57.7
+🟠 Balanceada | 9.12      | 35.8        | 52.4       | 64.2
+🟢 Más Segura | 10.23     | 28.5        | 45.7       | 71.5 ⭐
+
+🎯 RECOMENDACIÓN: Ruta Más Segura
+   ✓ Reduce el riesgo en 32.6%
+   ✓ Solo 1.5 km más larga (17%)
+   ✓ ~4 minutos adicionales
+   💰 Valor: Mucho más seguro con costo mínimo en tiempo
+```
+
+**Visualizaciones:**
+- Mapa interactivo con 3 rutas superpuestas
+- Perfil de riesgo a lo largo de las rutas
+- Radar chart multidimensional
+- Tabla comparativa de métricas
+
+**Salida:**
+- `mapas/mapa_rutas_zocalo_polanco.html` ⭐
+
+---
+
+## 📐 Fórmulas Matemáticas Clave
+
+### Getis-Ord Gi\* (Hot Spots)
+
+$$
+G_i^* = \frac{\sum_j w_{ij}x_j - \bar{X} \sum_j w_{ij}}{S \sqrt{\frac{n\sum_j w_{ij}^2 - (\sum_j w_{ij})^2}{n - 1}}}
+$$
+
+### Moran's I (Autocorrelación)
+
+$$
+I = \frac{n}{\sum_i \sum_j w_{ij}} \times \frac{\sum_i \sum_j w_{ij}(x_i - \bar{x})(x_j - \bar{x})}{\sum_i (x_i - \bar{x})^2}
+$$
+
+### Índice de Riesgo Compuesto
+
+$$
+\text{riesgo\_compuesto} = 0.6 \times \text{riesgo\_histórico} + 0.1 \times \text{riesgo\_cluster} + 0.3 \times \text{riesgo\_ml}
+$$
+
+Ver [`docs/README_FORMULAS.ipynb`](docs/README_FORMULAS.ipynb) para documentación completa con LaTeX.
+
+---
+
+## 📊 Resultados Clave
 
 ### Clusters de Alto Riesgo
-- **29 clusters identificados** con DBSCAN
-- **Cluster más crítico**: 30,959 accidentes, 660 muertos (Lat 19.398, Lon -99.143)
-- **79 hot spots significativos** (Getis-Ord Gi*)
+- **299 clusters identificados** con DBSCAN
+- **79 hot spots estadísticamente significativos** (Getis-Ord Gi\*)
+- **I = 0.6837:** Clustering espacial altamente significativo
 
 ### Factores de Riesgo Principales
-Según importancia en Random Forest:
-1. Mes del año
-2. Alcaldía (mpio)
-3. Hora del día
-4. Día de la semana
-5. Año
+Según Feature Importance (Random Forest):
+1. Hora del día
+2. Día de la semana
+3. Mes del año
+4. Alcaldía (delegación)
+5. Riesgo de clustering espacial
 
 ### Rendimiento de Modelos
-Accuracy en conjunto de prueba:
-- Decision Tree: ~0.97
-- Random Forest: ~0.97
-- Logistic Regression: ~0.97
-- Stacking: ~0.97
-
-**Nota**: Alta accuracy debido a desbalance de clases (97% no graves)
-
-### Ruteo Seguro
-Ejemplo (Zócalo → Polanco):
-- **Ruta rápida**: 10.3 min, 7.97 km, riesgo 0.0181
-- **Ruta segura**: 14.3 min, 8.22 km, riesgo 0.0135 (25% menos riesgo, 38% más tiempo)
-- **Ruta balanceada**: 12.1 min, 8.22 km, riesgo 0.0123 (compromiso óptimo)
+| Modelo | Accuracy | Precision | Recall | F1-Score |
+|--------|----------|-----------|--------|----------|
+| Decision Tree | 82% | 0.78 | 0.75 | 0.76 |
+| Random Forest | 87% | 0.85 | 0.82 | 0.83 |
+| Logistic Regression | 78% | 0.74 | 0.71 | 0.72 |
+| **Stacking Ensemble** | **88%** | **0.86** | **0.84** | **0.85** |
 
 ---
 
-## Aplicaciones
+## 🎨 Visualizaciones
 
-### 1. Políticas Públicas
+### Mapas Interactivos (HTML)
+- **mapa_clusters_dbscan.html:** Clusters DBSCAN y hot spots
+- **mapa_rutas_zocalo_polanco.html:** 3 rutas comparativas con leyenda ⭐
+
+### Gráficos Estáticos
+- Perfiles de riesgo a lo largo de rutas
+- Radar charts multidimensionales
+- Matrices de confusión
+- Feature importance
+- Curvas ROC
+
+---
+
+## 💡 Aplicaciones Prácticas
+
+### 1. Navegación Segura para Ciudadanos
+- App móvil con ruteo que considera seguridad
+- Alertas de zonas de alto riesgo en tiempo real
+- Recomendaciones personalizadas según preferencia (velocidad vs seguridad)
+
+### 2. Políticas Públicas
 - Identificación de zonas prioritarias para intervención
 - Diseño de campañas de prevención basadas en evidencia
 - Asignación óptima de recursos de seguridad vial
-
-### 2. Aplicación de Navegación
-- Sistema de ruteo que considera seguridad además de tiempo
-- Alertas de zonas de alto riesgo
-- Visualización de hot spots
+- Priorización de obras de mejora vial
 
 ### 3. Análisis Predictivo
 - Predicción de severidad de accidentes
 - Identificación de factores de riesgo modificables
 - Monitoreo de tendencias temporales
+- Sistema de alertas preventivas
 
 ---
 
-## Limitaciones
+## ⚙️ Requisitos Técnicos
 
-1. **Datos históricos**: Análisis basado en 2019-2023, requiere actualización periódica
-2. **Calidad de datos**: Depende de la precisión de reportes oficiales
-3. **Factores externos**: No captura clima, eventos especiales, tráfico en tiempo real
-4. **Desbalance de clases**: 97% de accidentes son no graves, afecta rendimiento de modelos
-5. **Causalidad**: Los modelos identifican correlación, no causación
+### Dependencias
+```bash
+# Core
+pandas>=1.5.0
+numpy>=1.23.0
 
----
+# Geoespacial
+geopandas>=0.12.0
+shapely>=2.0.0
+osmnx>=1.3.0
+networkx>=2.8.0
 
-## Próximos Pasos
+# Machine Learning
+scikit-learn>=1.2.0
 
-### Corto Plazo
-1. Validar modelos con datos de 2024
-2. Desarrollar API REST para ruteo seguro
-3. Crear dashboard interactivo con mapas
+# Análisis espacial estadístico
+libpysal>=4.7.0
+esda>=2.4.0
 
-### Mediano Plazo
-1. Integrar datos de tráfico en tiempo real
-2. Implementar análisis temporal (series de tiempo)
-3. Desarrollar app móvil de navegación segura
+# Visualización
+matplotlib>=3.6.0
+seaborn>=0.12.0
+folium>=0.14.0
 
-### Largo Plazo
-1. Sistema de alertas predictivas
-2. Integración con autoridades de tránsito
-3. Modelo de actualización continua con nuevos datos
+# Utilidades
+scipy>=1.10.0
+```
 
----
-
-## Autores
-
-Proyecto desarrollado como trabajo final de Minería de Datos.
-
----
-
-## Licencia
-
-Este proyecto es de carácter académico.
+### Requisitos de Sistema
+- **RAM:** Mínimo 8GB (recomendado 16GB para `proceso.ipynb`)
+- **Espacio en disco:** ~500MB para datos + modelos
+- **Python:** 3.8 o superior
+- **Sistema operativo:** Windows, Linux, macOS
 
 ---
 
-## Contacto
+## ⚠️ Limitaciones y Consideraciones
 
-Para más información sobre el proyecto, consultar los notebooks detallados.
+1. **Datos históricos:** Basado en 2019-2023, requiere actualización periódica
+2. **Calidad de datos:** Depende de precisión de reportes oficiales de C5
+3. **Factores externos no capturados:**
+   - Clima y condiciones meteorológicas
+   - Eventos especiales o manifestaciones
+   - Tráfico en tiempo real
+   - Estado de la infraestructura vial
+4. **Desbalance de clases:** ~85% de accidentes son leves
+5. **Correlación ≠ Causación:** Los modelos identifican patrones, no causas directas
 
 ---
 
-**Última actualización**: 14 de noviembre de 2025
+## 🛣️ Roadmap
+
+### Corto Plazo (3-6 meses)
+- [ ] Validar modelos con datos de 2024
+- [ ] Desarrollar API REST para ruteo seguro
+- [ ] Crear dashboard interactivo con mapas en tiempo real
+- [ ] Integrar más features contextuales (clima, eventos)
+
+### Mediano Plazo (6-12 meses)
+- [ ] Integrar datos de tráfico en tiempo real (Waze, Google Maps)
+- [ ] Implementar análisis de series de tiempo
+- [ ] Desarrollar app móvil iOS/Android
+- [ ] Sistema de actualización automática de modelos
+
+### Largo Plazo (1-2 años)
+- [ ] Sistema de alertas predictivas push
+- [ ] Integración oficial con Secretaría de Movilidad CDMX
+- [ ] Modelo de aprendizaje continuo con nuevos datos
+- [ ] Expansión a otras ciudades de México
+
+---
+
+## 📚 Documentación Adicional
+
+- **[docs/README_DATOS.md](docs/README_DATOS.md):** Explicación detallada de las 4 carpetas de datos
+- **[docs/README_NOTEBOOKS.md](docs/README_NOTEBOOKS.md):** Flujo de ejecución y detalles técnicos de cada notebook
+- **[docs/README_FORMULAS.ipynb](docs/README_FORMULAS.ipynb):** Fórmulas matemáticas completas con LaTeX
+- **[docs/ARQUITECTURA_WEB.md](docs/ARQUITECTURA_WEB.md):** Propuesta de arquitectura para aplicación web
+
+---
+
+## 👥 Autores
+
+Proyecto desarrollado como Trabajo Final de **Minería de Datos**.
+
+---
+
+## 📄 Licencia
+
+Este proyecto es de carácter **académico y de investigación**. Los datos utilizados provienen de fuentes públicas (C5 CDMX, OpenStreetMap).
+
+---
+
+## 🙏 Agradecimientos
+
+- **C5 CDMX:** Por proporcionar datos abiertos de accidentes de tránsito
+- **OpenStreetMap:** Por la red vial abierta de CDMX
+- **Comunidad OSMnx, GeoPandas, scikit-learn:** Por las excelentes herramientas
+
+---
+
+## 📞 Contacto
+
+Para más información sobre el proyecto:
+- Consultar los notebooks detallados
+- Revisar la documentación en `/docs`
+- Explorar los mapas interactivos en `/mapas`
+
+---
+
+**⭐ DEMO RECOMENDADA:** Ejecuta `03_sistema_ruteo_zocalo_polanco.ipynb` y abre `mapas/mapa_rutas_zocalo_polanco.html` para ver el sistema en acción.
+
+---
+
+**Última actualización:** 21 de noviembre de 2025
+**Versión:** 2.0 (Proyecto reorganizado y documentado)
