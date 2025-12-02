@@ -55,14 +55,20 @@ Ver [WebPage/README.md](WebPage/README.md) para instrucciones de instalación y 
 
 ## Metodologías Aplicadas
 
+### Proceso de Minería
+- **CRISP-DM** - Marco metodológico para minería de datos aplicado al proyecto
+
 ### Análisis Espacial
 - **DBSCAN** - Clustering de accidentes (eps=0.005, min_samples=5)
+- **HDBSCAN** - Detección de outliers en patrones de accidentes
 - **Getis-Ord Gi*** - Identificación de hot spots estadísticamente significativos
 - **Moran's I** - Autocorrelación espacial
+- **BallTree** - Cálculo eficiente de distancias con métrica haversine
 
 ### Machine Learning
 - **Random Forest** - Predicción de gravedad de accidentes (Accuracy: 89.2%)
 - **Decision Tree** - Modelo interpretable de causas (Accuracy: 87.5%)
+- **Logistic Regression** - Clasificación de patrones de accidentes
 - **Stacking Ensemble** - Combinación de modelos base para mayor precisión
 
 ### Optimización de Rutas
@@ -139,6 +145,9 @@ La aplicación estará disponible en http://localhost:3000
   - Cobertura: 16 alcaldías de CDMX
 
 ## Autores
+
+- Alegre Ventura Roberto Jhoshua
+- Ramírez Nava Alejandro Iram
 
 Proyecto Final - Minería de Datos
 
