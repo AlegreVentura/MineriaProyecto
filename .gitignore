@@ -1,0 +1,16 @@
+# Node modules
+node_modules/
+WebPage/backend/node_modules/
+
+# Environment variables
+.env
+*.env
+!.env.example
+
+# Claude Code settings
+.claude/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini

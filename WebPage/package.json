@@ -1,0 +1,26 @@
+{
+  "name": "ruteo-seguro-cdmx-web",
+  "version": "1.0.0",
+  "description": "Aplicación web completa del Sistema de Ruteo Seguro CDMX",
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm run dev\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [
+    "ruteo",
+    "cdmx",
+    "machine-learning",
+    "spatial-analysis",
+    "react",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
